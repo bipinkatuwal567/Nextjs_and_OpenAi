@@ -7,7 +7,6 @@ export default function TasksPage(){
         <div className="max-w-xl">
             <TaskForm />
             <TaskList />
-            <DeleteForm />
         </div>
     )
 }
