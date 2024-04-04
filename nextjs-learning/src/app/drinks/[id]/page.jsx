@@ -2,17 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 const url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
-export async function fetchSingleDrink(id) {
-  const response = await fetch(`${url}${id}`);
-
-  if (!response.ok) {
-    throw new Error("Couldn't fetch the single drink...");
-  }
-
-  return response.json();
-}
 
 export default async function DrinksPageId({ params }) {
+  async function fetchSingleDrink(id) {
+    const response = await fetch(`${url}${id}`);
+  
+    if (!response.ok) {
+      throw new Error("Couldn't fetch the single drink...");
+    }
+  
+    return response.json();
+  }
   const data = await fetchSingleDrink(params.id);
   //   console.log(data);
   const title = data?.drinks[0]?.strDrink;

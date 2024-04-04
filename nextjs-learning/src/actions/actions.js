@@ -22,7 +22,7 @@ const createTaskSchemea = z.object({
 
 export const createTaskCustom = async (formStatus, formdata) => {
   const content = formdata.get("content");
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   try {
     createTaskSchemea.parse({content})
@@ -42,10 +42,13 @@ export const createTaskCustom = async (formStatus, formdata) => {
   }
 };
 
-export const deleteTask = async (id) => {
+export const deleteTask = async (formData) => {
+  await new Promise(resolve => setTimeout(resolve, 1000))
+  const id = formData.get("id");
+
   await prisma.task.delete({
     where: {
-      id: id,
+      id
     },
   });
 
