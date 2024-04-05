@@ -1,5 +1,7 @@
-export default function ProfilePage(){
-    return(
-        <div>ProfilePage</div>
-    )
+import { UserProfile } from "@clerk/nextjs";
+
+export default function ProfilePage() {
+  return (
+      <UserProfile />
+  );
 }
